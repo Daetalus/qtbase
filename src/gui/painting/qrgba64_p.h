@@ -276,6 +276,7 @@ inline QRgba64 rgbBlend(QRgba64 d, QRgba64 s, uint rgbAlpha)
     vd = vrshrn_n_u32(vd32, 16);
     vst1_u64(reinterpret_cast<uint64_t *>(&blend), vreinterpret_u64_u16(vd));
 #else
+    blend = QRgba64();
     const int mr = qRed(rgbAlpha);
     const int mg = qGreen(rgbAlpha);
     const int mb = qBlue(rgbAlpha);
